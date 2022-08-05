@@ -28,7 +28,15 @@ const muestrasGetBuscarid = async (req, res) => {
       muestras,
     });
   };
-  //Buscar muestra por ID- falta por nomnbre
+  const muestrasGetBuscarNombre = async (req, res) => {
+    const {nombre} = req.params;
+    const muestras = await Muestras.find(nombre);
+    res.json({
+      muestras,
+    });
+  };
+
+  //Buscar muestra por ID-Nombre
 
   const muestrasGetBuscarTipo = async (req, res) => {
     const {tipo} = req.params;
@@ -38,10 +46,11 @@ const muestrasGetBuscarid = async (req, res) => {
     });
   };
 
+ 
   //Listar muestras por tipo
 
   const muestrasGetBuscarDir = async (req, res) => {
-    const { direccion} = req.params;
+    const {direccion} = req.params;
     const muestras = await Muestras.find(direccion);
     res.json({
       muestras,
@@ -56,8 +65,10 @@ const muestrasGetBuscarid = async (req, res) => {
     const muestras = await Muestras.findByIdAndUpdate(id, {
       nombre,
       descripcion,
-      cantidad,registroSanitario,
-      loteProducto,fechaVencimiento,
+      cantidad,
+      registroSanitario,
+      loteProducto,
+      fechaVencimiento,
       presentacionProducto,
       fechaProduccion,
       fechaHoraRecoleccion,
@@ -79,6 +90,5 @@ const muestrasGetBuscarid = async (req, res) => {
   //Modificar datos de la muestra
 
   export {
-    muestrasPost,muestrasGetBuscar,muestrasGetBuscarid,muestrasGetBuscarTipo, muestrasGetBuscarDir, muestrasPutEditar
-  
+    muestrasPost,muestrasGetBuscar,muestrasGetBuscarid,muestrasGetBuscarTipo, muestrasGetBuscarDir, muestrasPutEditar,muestrasGetBuscarNombre
   };

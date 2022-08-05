@@ -98,8 +98,8 @@ const usuariosGetBuscarRol = async (req, res) => {
 //listar usuarios por direccion
 
 const usuariosGetBuscarDir = async (req, res) => {
-  const { direccion} = req.params;
-  const usuarios = await Usuarios.find(direccion);
+  const { direccion} = req.query;
+  const usuarios = await Usuarios.find({direccion});
   res.json({
     usuarios,
   });
@@ -107,13 +107,13 @@ const usuariosGetBuscarDir = async (req, res) => {
 
 //listar usuarios por especialidad
 const usuariosGetBuscarEsp = async (req, res) => {
-  const { especialidad} = req.params;
-  const usuarios = await Usuarios.find(esp);
+  const { especialidad} = req.query;
+  const usuarios = await Usuarios.find({especialidad});
   res.json({
     usuarios,
   });
 };
-// modificar datos de usuario
+// modificar datos de usuario............ya
 
 
 const usuariosPutEditar = async (req, res) => {
