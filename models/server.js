@@ -1,7 +1,7 @@
 import express from "express"
 import cors from "cors"
 import bdconectar from '../database/config.js'
- import Usuarios from '../routers/Usuarios.js';
+ import Usuarios from '../routers/usuarios.js';
 
 
 
